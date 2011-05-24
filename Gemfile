@@ -30,6 +30,7 @@ end
 group :test do
   gem 'rspec'
   gem 'webrat'
+  gem 'spork'
 end
 
 # Bundle gems for the local environment. Make sure to
