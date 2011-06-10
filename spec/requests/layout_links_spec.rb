@@ -7,23 +7,39 @@ describe "LayoutLinks" do
 #      get layout_links_index_path
 #      response.status.should be(200)
  
-it "should have a Home page at '/'" do
-get '/'
-response.should have_selector('title', :content => "Home")
-   end
-
-it "should have a Contact page at '/contact'" do
-get '/about'
+it "should have the right links on the layout" do
+visit root_path
+click_link "About"
 response.should have_selector('title', :content => "About")
-end
-
-it "should have a Help page '/help'" do
-get '/help'
+click_link "Help"
 response.should have_selector('title', :content => "Help")
-  end
-
-it "should have a signup page at '/signup'" do
-get '/signup'
+click_link "Contact"
+response.should have_selector('title', :content => "Contact")
+click_link "Home"
+response.should have_selector('title', :content => "Home")
+visit root_path
+click_link "Sign up now!"
 response.should have_selector('title', :content => "Sign up")
 end
 end
+
+#it "should have a Home page at '/'" do
+#get '/'
+#response.should have_selector('title', :content => "Home")
+#   end
+
+#it "should have a Contact page at '/contact'" do
+#get '/about'
+#response.should have_selector('title', :content => "About")
+#end
+
+#it "should have a Help page '/help'" do
+#get '/help'
+#response.should have_selector('title', :content => "Help")
+#  end
+
+#it "should have a signup page at '/signup'" do
+#get '/signup'
+#response.should have_selector('title', :content => "Sign up")
+#end
+#end
